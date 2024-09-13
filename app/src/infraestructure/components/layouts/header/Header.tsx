@@ -5,7 +5,7 @@ import OptionsSucursal from "./OptionsSucursal";
 
 function Header() {
   return (
-    <header className="overflow-hidden bg-red h-[30vh] w-full md:h-[40vh] sticky top-0 left-0 z-20 uppercase bg-red-600">
+    <header className="overflow-hidden bg-red h-[30vh] w-full md:h-[40vh] sticky top-0 left-0 z-20 uppercase ">
       <OptionsSucursal />
       <div id="TitleContainer" className=" absolute w-full text-center top-16 z-10">
         <h1 className="  text-sky-50 text-shadow">
