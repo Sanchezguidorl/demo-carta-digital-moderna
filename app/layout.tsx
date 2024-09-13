@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="bg-red max-h-[100vh] overflow-scroll text-white">
+    <html lang="es" className="bg-red max-h-[100vh] w-full overflow-scroll text-white">
       <body className={`${Antiqua.className} h-full relative`}>{children}</body>
     </html>
   );
