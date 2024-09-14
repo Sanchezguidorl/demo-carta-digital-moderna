@@ -1,12 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import HeaderImage from "/public/images/header-image.webp";
-import OptionsSucursal from "./OptionsSucursal";
 
 function Header() {
   return (
     <header className="overflow-hidden bg-red h-[30vh] w-full md:h-[40vh] sticky top-0 left-0 z-20 uppercase ">
-      <OptionsSucursal />
       <div id="TitleContainer" className=" absolute w-full text-center top-16 z-10">
         <h1 className="  text-sky-50 text-shadow">
           <p className=" text-xs md:text-3xl">BIENVENIDOS</p>

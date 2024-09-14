@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inknut_Antiqua } from "next/font/google";
 import "./globals.css";
+import OptionsSucursal from "./src/infraestructure/components/layouts/header/OptionsSucursal";
 
 const Antiqua = Inknut_Antiqua({
   subsets: ["latin"],
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-red max-h-[100vh] w-full overflow-scroll text-white">
-      <body className={`${Antiqua.className} h-full relative`}>{children}</body>
+      <body className={`${Antiqua.className} h-full relative`}>
+      <OptionsSucursal />
+        {children}</body>
     </html>
   );
 }

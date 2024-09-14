@@ -4,3 +4,4 @@ export type CategoryItemType={
     title:string;
     image:StaticImageData;
 }
+
