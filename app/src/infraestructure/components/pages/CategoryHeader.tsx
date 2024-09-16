@@ -1,24 +1,55 @@
-import Image from 'next/image'
-import React from 'react'
-import HeaderImage from "/public/images/header-image.webp";
-import BackIcon from "/public/images/backIcon.png";
-import { useRouter } from 'next/navigation';
+import Image from "next/image";
+import React from "react";
+import MariscosImage from "/public/images/mariscos.jpg";
+import HamburguesasImage from "/public/images/hamburguesas.jpg";
+import EntradasImage from "/public/images/entradas.webp";
+import EnsaladaImage from "/public/images/ensalada.jpg";
+import SopaImage from "/public/images/sopa.jpg";
+import BackButton from "../layouts/BackButton";
 
-function CategoryHeader({title}:{title:string}) {
-    const navigate= useRouter()
-  return (
-    <header className="overflow-hidden bg-red h-[30vh] w-full md:h-[40vh] sticky top-0 left-0 z-20 uppercase ">
-      <div id="TitleContainer" className=" absolute w-full top-0 h-full flex justify-center items-center text-center  z-10">
-        <div onClick={()=>navigate.back()} className=' p-2 pl-4 absolute left-0 top-4 w-14 bg-black rounded-r-lg bg-opacity-[35%] hover:cursor-pointer hover:saturate-150 hover:contrast-150'>
-            <Image className='' src={BackIcon} alt=''/>
-        </div>
-        <h1 className="  text-sky-50 text-shadow">
-          <p className="text-3xl md:text-6xl">{title}</p>
-        </h1>
-      </div>
-      <Image src={HeaderImage} className=" contrast-125 saturate-50 w-full  m-auto" alt="" />
-    </header>
-  )
+interface CategoryHeaderProps {
+  title: string;
 }
 
-export default CategoryHeader
+function CategoryHeader({ title }: CategoryHeaderProps) {
+
+  // Aseguramos que todos los elementos tengan el formato de objeto con 'categoryName' y 'imageSrc'
+  const categories = [
+    { categoryName: "sopas", imageSrc: SopaImage },
+    { categoryName: "ensaladas", imageSrc: EnsaladaImage },
+    { categoryName: "entradas", imageSrc: EntradasImage },
+    { categoryName: "hamburguesas", imageSrc: HamburguesasImage },
+    { categoryName: "mariscos", imageSrc: MariscosImage },
+  ];
+
+  // Buscar el objeto que coincida con el title
+  const category = categories.find(
+    (cat) => cat.categoryName === title.toLowerCase()
+  );
+
+  // Si no encuentra el título, podemos usar un fallback o una imagen predeterminada
+  const HeaderImage = category
+    ? category.imageSrc
+    : "/public/images/default.jpg";
+
+  return (
+    <div className="overflow-hidden bg-red h-[30vh] w-full md:h-[40vh] uppercase">
+      <div
+        id="TitleContainer"
+        className="absolute w-full -top-6  h-full flex justify-center items-center text-center z-10"
+      >
+        <BackButton/>
+        <h1 className="text-sky-50 text-shadow">
+          <p className="text-2xl md:text-5xl">{title}</p>
+        </h1>
+      </div>
+      <Image
+        src={HeaderImage}
+        className="w-full brightness-75 hover:saturate-100 contrast-125"
+        alt={`${title} image`}
+      />
+    </div>
+  );
+}
+
+export default CategoryHeader;

@@ -3,6 +3,8 @@ export type PlateType = {
     price: number;
     description: string;
     score: number;
-    category: 'ensaladas' | 'mariscos' | 'sopas' | 'entradas' | 'hamburguesas';
+    image: string;
+    onPromotion:boolean;
+    category: 'ensaladas' | 'mariscos' | 'sopas' | 'entradas' | 'hamburguesas' | 'pastas'| 'carnes' |'postres';
   };
 export type PlatesListType = PlateType[];
