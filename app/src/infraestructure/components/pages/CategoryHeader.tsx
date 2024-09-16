@@ -33,7 +33,7 @@ function CategoryHeader({ title }: CategoryHeaderProps) {
     : "/public/images/default.jpg";
 
   return (
-    <div className="overflow-hidden bg-red h-[30vh] w-full md:h-[40vh] uppercase">
+    <div className="overflow-hidden bg-red h-[24vh] w-full md:h-[40vh] uppercase">
       <div
         id="TitleContainer"
         className="absolute w-full -top-6  h-full flex justify-center items-center text-center z-10"
