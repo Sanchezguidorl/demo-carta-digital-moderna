@@ -16,7 +16,7 @@ function OptionsSucursal() {
 
   return (
 
-      <div className="absolute top-0 translate-x-1/2 right-1/2 flex justify-center z-30 bg-black w-60 pt-4 pb-2 px-8 text-center rounded-b-md bg-opacity-60 backdrop-blur-xs text-[0.5rem]">
+      <div className="absolute top-0 translate-x-1/2 right-1/2 flex justify-center z-30 bg-black w-60 pt-4 pb-2 px-8 text-center rounded-b-md bg-opacity-60 backdrop-blur-xs text-[0.65rem]">
         <div className=" ">
           <div className="relative flex justify-center mx-auto gap-2">
             {/* Muestra la sucursal activa */}
@@ -34,7 +34,7 @@ function OptionsSucursal() {
               isActive ? "max-h-[500px]" : "max-h-0"
             }`}
           >
-            <ul className="text-[0.4rem] mt-4">
+            <ul className="text-[0.5rem] mt-4">
               {/* Lista de sucursales disponibles */}
               {availableSites.map((site) => (
                 <li
