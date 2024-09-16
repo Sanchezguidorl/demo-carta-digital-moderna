@@ -22,8 +22,8 @@ function CategoryRoute() {
         <FilterBar platesList={categoryItems} setPlatesList={setCategoryItems}/>
       </header>
       <ScrollContainer>
-        {categoryItems.map((plateItem) => (
-          <CardPlate plateItem={plateItem} />
+        {categoryItems.map((plateItem, index) => (
+          <CardPlate key={index} plateItem={plateItem} />
         ))}
       </ScrollContainer>
     </>
