@@ -1,20 +1,30 @@
-import CategoryItem from "./CategoryItem"
-import MariscosImage from "/public/images/mariscos.jpg"
-import HamburguesasImage from "/public/images/hamburguesas.jpg"
-import EntradasImage from "/public/images/entradas.webp"
-import EnsaladaImage from "/public/images/ensalada.jpg"
-import SopaImage from "/public/images/sopa.jpg"
+"use client";
+import CategoryItem from "./CategoryItem";
+import EnsaladaImage from "/public/images/ensalada.jpg";
+import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
+import { CategoryEntity } from "@/app/src/domain/entity/Category.entity";
+import CategoryEmpty from "../../pages/category/CategoryEmpty";
+
 
 function CategoriesList() {
+  const { localService } = useLocalContext();
+  console.log(localService?.getAllCategories())
   return (
-<>
-<CategoryItem categoryItemProps={{title:"Ensaladas",image:EnsaladaImage}}/>
-<CategoryItem categoryItemProps={{title:"HAMBURGUESAS",image:HamburguesasImage}}/>
-<CategoryItem categoryItemProps={{title:"ENTRADAS",image:EntradasImage}}/>
-<CategoryItem categoryItemProps={{title:"MARISCOS",image:MariscosImage}}/>
-<CategoryItem categoryItemProps={{title:"SOPAS",image:SopaImage}}/>
-</>
-  )
+    <>
+      {localService && localService.getAllCategories().length>0? localService.getAllCategories().map((category: CategoryEntity) => (
+        <CategoryItem
+            key={category.getId()}
+          categoryItemProps={{
+            id: category.getId(),
+            title: category.getName(),
+            image: EnsaladaImage,
+          }}
+        />
+      )):
+      <CategoryEmpty/>
+      }
+    </>
+  );
 }
 
-export default CategoriesList
+export default CategoriesList;

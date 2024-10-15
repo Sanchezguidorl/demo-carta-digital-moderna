@@ -1,18 +1,12 @@
-import Link from "next/link";
-import CategoriesList from "./src/infraestructure/components/layouts/categories/CategoriesList";
-import Header from "./src/infraestructure/components/layouts/header/Header";
-import ScrollContainer from "./src/infraestructure/components/layouts/ScrollContainer";
+import Image from "next/image";
+import BgImg from "/public/images/local-selection.jpg";
+import SelectioLocalsList from "./src/infraestructure/components/layouts/SelectioLocalsList";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <Link href={"/pages/admin"} className="fixed z-40 bg-stone-100 text-amber-950 p-2 rounded-r-lg bg-opacity-70 brightness-125 max-w-32 top-80 text-xs">
-      Ir a panel de administrador
-      </Link>
-      <ScrollContainer>
-        <CategoriesList />
-      </ScrollContainer>
-    </>
+    <main className="fade-in bg-red-300 h-full text-red-950 flex flex-col justify-center relative text-center">
+      <Image src={BgImg} className=" absolute min-h-full min-w-full blur-sm -z-0" alt=""/>
+      <SelectioLocalsList/>
+    </main>
   );
 }

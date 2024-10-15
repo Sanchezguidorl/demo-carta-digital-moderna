@@ -1,19 +1,18 @@
 "use client";
 import { useState } from "react";
-import { menuItems } from "@/app/src/domain/DatabaseMock";
 import ScrollContainer from "@/app/src/infraestructure/components/layouts/ScrollContainer";
 import AdminHeader from "@/app/src/infraestructure/components/pages/admin/AdminHeader";
-import CardPlate from "@/app/src/infraestructure/components/layouts/plates/CardPlate";
+import CardPlate from "@/app/src/infraestructure/components/pages/category/plates/CardPlate";
 import Image from 'next/image';
 import EditIcon from '/public/images/editIcon.png';
+import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
 
 function AdminPage() {
   const [selectedCategory, setSelectedCategory] = useState("");
-
+  const {localService}=useLocalContext();
   // Filtrar los items según la categoría seleccionada
   const filteredMenuItems = selectedCategory
-    ? menuItems.filter((item) => item.category === selectedCategory)
-    : menuItems;
+    ? localService?.getAllplatesByCategory(selectedCategory) || []: localService?.getAllPlates() || [];
 
   const handleCategoryChange = (
     event: React.ChangeEvent<HTMLSelectElement>

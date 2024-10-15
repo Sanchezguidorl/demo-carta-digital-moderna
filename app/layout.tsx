@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inknut_Antiqua } from "next/font/google";
 import "./globals.css";
+import LocalContextProvider from "./src/contexts/LocalContextProvider";
+import RestaurantContextProvider from "./src/contexts/RestaurantContextProvider";
+
 
 const Antiqua = Inknut_Antiqua({
   subsets: ["latin"],
@@ -18,9 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="bg-red max-h-[100vh] w-full overflow-scroll text-white">
+    <html lang="es" className="bg-red h-full max-h-[100vh] w-full overflow-hidden text-white">
+
+      <RestaurantContextProvider>
+
+      <LocalContextProvider>
       <body className={`${Antiqua.className} h-full`}>
         {children}</body>
+      </LocalContextProvider>
+      </RestaurantContextProvider>
     </html>
   );
 }

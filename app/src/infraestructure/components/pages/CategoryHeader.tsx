@@ -44,8 +44,8 @@ function CategoryHeader({ title }: CategoryHeaderProps) {
         </h1>
       </div>
       <Image
-        src={HeaderImage}
-        className="w-full brightness-75 hover:saturate-100 contrast-125"
+        src={EntradasImage}
+        className=" w-full brightness-75 hover:saturate-100 contrast-125"
         alt={`${title} image`}
       />
     </div>

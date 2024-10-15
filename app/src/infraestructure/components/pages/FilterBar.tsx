@@ -1,14 +1,13 @@
-import { PlateType } from "@/app/src/domain/category/PlatesTypes";
-import OrderIcon from "/public/images/orderIcon.png";
-import Image from "next/image";
-import { useState } from "react";
+
+import { Dispatch, SetStateAction, useState } from "react";
+import { PlateEntity } from "@/app/src/domain/entity/Plate.entity";
 
 function FilterBar({
   platesList,
   setPlatesList,
 }: {
-  platesList: PlateType[];
-  setPlatesList: (plates: PlateType[]) => void;
+  platesList: PlateEntity[]| [];
+  setPlatesList: Dispatch<SetStateAction<PlateEntity[]>>; 
 }) {
   const [orderBy, setOrderBy] = useState<string>("asc"); // Estado para manejar el tipo de orden
 
@@ -18,11 +17,11 @@ function FilterBar({
 
     // Ordenamos los platos según el valor seleccionado
     const sortedPlates = [...platesList].sort((a, b) => {
-      if (order === "asc") return a.price - b.price;
-      if (order === "desc") return b.price - a.price;
+      if (order === "asc") return a.getPrice() - b.getPrice();
+      if (order === "desc") return b.getPrice() - a.getPrice();
       return 0;
     });
-
+console.log(sortedPlates)
     setPlatesList(sortedPlates);
   };
 
