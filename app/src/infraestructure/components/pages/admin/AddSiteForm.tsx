@@ -98,9 +98,9 @@ function AddSiteForm() {
                 className="object-cover absolute w-full h-full brightness-50"
               />
             ) : (
-              <Image
-                src={BgImg}
-                srcset={`${BgImgSmall} 480w, ${BgImgMedium} 768w, ${BgImg} 1200w`}
+              <img
+                src={BgImg.src}
+                srcSet={`${BgImgSmall} 480w, ${BgImgMedium} 768w, ${BgImg} 1200w`}
                 alt="Default Background"
                 className="object-cover absolute w-full h-full brightness-50"
               />
