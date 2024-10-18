@@ -1,7 +1,6 @@
-import Image from "next/image";
-import BgImg from "/public/images/localselection_large.webp";
-import BgImgMedium from "/public/images/localselection_medium.webp";
-import BgImgSmall from "/public/images/localselection_small.webp";
+import BgImg from "/public/images/localselection_large.avif";
+import BgImgMedium from "/public/images/localselection_medium.avif";
+import BgImgSmall from "/public/images/localselection_small.avif";
 import SelectioLocalsList from "./src/infraestructure/components/layouts/SelectioLocalsList";
 
 export default function Home() {
