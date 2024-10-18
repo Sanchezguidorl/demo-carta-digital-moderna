@@ -2,9 +2,9 @@
 import { useState } from "react";
 import SaveIcon from "/public/images/saveIcon.png";
 import AddIcon from "/public/images/addIcon.png";
-import BgImg from "/public/images/localselection_large.webp";
-import BgImgMedium from "/public/images/localselection_medium.webp";
-import BgImgSmall from "/public/images/localselection_small.webp";
+import BgImg from "/public/images/local_large.webp";
+import BgImgMedium from "/public/images/local_medium.webp";
+import BgImgSmall from "/public/images/local_small.webp";
 import Image from "next/image";
 import { useRestaurantContext } from "@/app/src/contexts/RestaurantContextProvider";
 import { LocalEntity } from "@/app/src/domain/entity/Local.entity";

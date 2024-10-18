@@ -1,6 +1,6 @@
-import BgImg from "/public/images/localselection_large.avif";
-import BgImgMedium from "/public/images/localselection_medium.avif";
-import BgImgSmall from "/public/images/localselection_small.avif";
+import BgImg from "/public/images/local_large.webp";
+import BgImgMedium from "/public/images/local_medium.webp";
+import BgImgSmall from "/public/images/local_small.webp";
 import SelectioLocalsList from "./src/infraestructure/components/layouts/SelectioLocalsList";
 
 
