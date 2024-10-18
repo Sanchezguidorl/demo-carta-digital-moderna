@@ -2,7 +2,9 @@
 import { useState } from "react";
 import SaveIcon from "/public/images/saveIcon.png";
 import AddIcon from "/public/images/addIcon.png";
-import BgImage from "/public/images/localselection.webp";
+import BgImg from "/public/images/localselection_large.webp";
+import BgImgMedium from "/public/images/localselection_medium.webp";
+import BgImgSmall from "/public/images/localselection_small.webp";
 import Image from "next/image";
 import { useRestaurantContext } from "@/app/src/contexts/RestaurantContextProvider";
 import { LocalEntity } from "@/app/src/domain/entity/Local.entity";
@@ -97,7 +99,8 @@ function AddSiteForm() {
               />
             ) : (
               <Image
-                src={BgImage}
+                src={BgImg}
+                srcset={`${BgImgSmall} 480w, ${BgImgMedium} 768w, ${BgImg} 1200w`}
                 alt="Default Background"
                 className="object-cover absolute w-full h-full brightness-50"
               />
