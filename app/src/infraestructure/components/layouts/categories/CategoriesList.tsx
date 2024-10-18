@@ -1,9 +1,9 @@
 "use client";
 import CategoryItem from "./CategoryItem";
-import EnsaladaImage from "/public/images/ensalada.jpg";
 import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
 import { CategoryEntity } from "@/app/src/domain/entity/Category.entity";
 import CategoryEmpty from "../../pages/category/CategoryEmpty";
+import Loading from "@/app/loading";
 
 
 function CategoriesList() {
@@ -11,7 +11,10 @@ function CategoriesList() {
   console.log(localService?.getAllCategories())
   return (
     <>
-      {localService && localService.getAllCategories().length>0? localService.getAllCategories().map((category: CategoryEntity) => (
+      {!localService? 
+      <Loading/>
+      :
+      localService.getAllCategories().length>0? localService.getAllCategories().map((category: CategoryEntity) => (
         <CategoryItem
             key={category.getId()}
           categoryItemProps={{

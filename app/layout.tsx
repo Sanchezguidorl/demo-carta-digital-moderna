@@ -4,10 +4,9 @@ import "./globals.css";
 import LocalContextProvider from "./src/contexts/LocalContextProvider";
 import RestaurantContextProvider from "./src/contexts/RestaurantContextProvider";
 
-
 const Antiqua = Inknut_Antiqua({
   subsets: ["latin"],
-  weight: ["400","500", "600", "700","900"], // Define uno o más pesos
+  weight: ["400", "500", "600", "700", "900"], // Define uno o más pesos
 });
 
 export const metadata: Metadata = {
@@ -21,14 +20,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="bg-red h-full w-full relative overflow-hidden text-white">
-
+    <html
+      lang="es"
+      className="bg-red h-full w-full relative overflow-hidden text-white"
+    >
+      <link rel="icon" href="/favicon.ico" />
       <RestaurantContextProvider>
-
-      <LocalContextProvider>
-      <body className={`${Antiqua.className} h-full overflow-auto`}>
-        {children}</body>
-      </LocalContextProvider>
+        <LocalContextProvider>
+          <body className={`${Antiqua.className} h-full overflow-auto`}>
+            {children}
+          </body>
+        </LocalContextProvider>
       </RestaurantContextProvider>
     </html>
   );
