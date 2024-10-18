@@ -17,7 +17,7 @@ function CategoryItem({ categoryItemProps }: { categoryItemProps: CategoryItemTy
         className="overflow-hidden relative flex justify-center items-center h-[110px] sm:h-[200px] md:h-[240px] uppercase brightness-90 hover:brightness-125"
         href={`/pages/category/${categoryItemProps.title.toLowerCase()}/${categoryItemProps.id}`}>
         
-        {!isLoading && <div className='absolute z-30 w-full h-full'><SkeletonDiv /></div>} {/* Mostrar SkeletonDiv mientras se carga */}
+        {isLoading && <div className='absolute z-30 w-full h-full'><SkeletonDiv /></div>} {/* Mostrar SkeletonDiv mientras se carga */}
 
         <Image
           src={categoryItemProps.image}
