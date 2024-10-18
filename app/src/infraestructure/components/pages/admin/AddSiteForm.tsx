@@ -2,7 +2,7 @@
 import { useState } from "react";
 import SaveIcon from "/public/images/saveIcon.png";
 import AddIcon from "/public/images/addIcon.png";
-import BgImage from "/public/images/localselection.jpg";
+import BgImage from "/public/images/localselection.webp";
 import Image from "next/image";
 import { useRestaurantContext } from "@/app/src/contexts/RestaurantContextProvider";
 import { LocalEntity } from "@/app/src/domain/entity/Local.entity";
