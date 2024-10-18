@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BgImg from "/public/images/local-selection.jpg";
+import BgImg from "/public/images/localselection.jpg";
 import SelectioLocalsList from "./src/infraestructure/components/layouts/SelectioLocalsList";
 
 export default function Home() {

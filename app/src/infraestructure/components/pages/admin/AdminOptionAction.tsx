@@ -31,13 +31,13 @@ function AdminOptionAction({ children, title }: AdminOptionActionProps) {
 
   return (
     <div ref={containerRef} className="font-sans border-b-2 border-orange-900 pt-2">
-      <div onClick={() => setIsActive(!isActive)} className="cursor-pointer">
-        <Image className="aspect-square w-8 mx-auto" src={AddIcon} alt="" />
-        <h2 className="text-center uppercase text-xs">{title}</h2>
+      <div onClick={() => setIsActive(!isActive)} className="cursor-pointer pb-6">
+        <Image className="aspect-square w-8 mx-auto md:w-16" src={AddIcon} alt="" />
+        <h2 className="text-center uppercase text-xs sm:text-xl mt-1">{title}</h2>
       </div>
       <div
         className={`transition-all duration-300 overflow-hidden ${
-          isActive ? "max-h-[500px]" : "max-h-0"
+          isActive ? "max-h-[1200px] overflow-auto" : "max-h-0 overflow-hidden"
         }`}
       >
         {children}

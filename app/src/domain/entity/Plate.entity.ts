@@ -2,23 +2,25 @@ import { PlateDTO } from "../dto/Plate.dto";
 
 export class PlateEntity {
   private _id: string;
-  private _title: string;
+  private _name: string;
   private _price: number;
   private _description: string;
   private _score: number;
   private _category: string;
   private _image: string;
   private _onPromotion: boolean;
+  private _imagePath: string;
 
   constructor(data: PlateDTO) {
     this._id = data.id;
-    this._title = data.title;
+    this._name = data.name;
     this._price = data.price;
     this._description = data.description;
     this._score = data.score;
     this._category = data.category;
-    this._image = data.image;
+    this._image = data.imageUrl;
     this._onPromotion = data.onPromotion;
+    this._imagePath = data.imagePath;
   }
 
   // Getters
@@ -27,7 +29,15 @@ export class PlateEntity {
   }
 
   public getTitle(): string {
-    return this._title;
+    return this._name;
+  }
+
+  public getImagePath(): string {
+    return this._imagePath
+  }
+
+  public setImagePath(path:string): void {
+    this._imagePath=path;
   }
 
   public getPrice(): number {
@@ -60,7 +70,7 @@ export class PlateEntity {
   }
 
   public setTitle(title: string): void {
-    this._title = title;
+    this._name = title;
   }
 
   public setPrice(price: number): void {

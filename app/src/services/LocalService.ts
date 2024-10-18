@@ -16,6 +16,11 @@ export class LocalService {
     return this.localData.getCategories().find((category) => category.getId() === id) || false;
   }
 
+  // Get coverimage
+  public getCoverImage():string {
+    return this.localData.getCoverImage();
+  }
+
   // Get ID
   public getId(): string | false {
     return this.localData.getId()
@@ -27,34 +32,17 @@ export class LocalService {
   }
 
   public getAllPlates(): PlateEntity[]|[] {
-    const allCategories = this.localData.getCategories(); // Obtén todas las categorías
-    let allPlates: PlateEntity[] = [];
-  
-    // Recorre cada categoría y extrae sus platos
-    allCategories.forEach((category) => {
-      const platesFromCategory = category.getPlates(); // Supone que getAllPlates() devuelve los platos de la categoría
-      allPlates = [...allPlates, ...platesFromCategory]; // Agrega los platos al array total
-    });
-  
-    return allPlates || [];
+    return this.localData.getAllPlates()
   }
 
   // Get plate by ID within a category
   public getplateById(categoryId: string, plateId: string): PlateEntity | false {
-    const category = this.getCategoryById(categoryId);
-    if (!category) {
-      return false;
-    }
-    return category.getPlates().find((plate) => plate.getId() === plateId) || false;
+    return this.localData.getAllPlates().find(plate=> plate.getId()===plateId)|| false
   }
 
   // Get all plates in a category
   public getAllplatesByCategory(categoryId: string): PlateEntity[] | [] {
-    const category = this.getCategoryById(categoryId);
-    if (!category) {
-      return [];
-    }
-    return category.getPlates();
+  return this.localData.getAllPlates().filter(plate=> plate.getCategory().toLowerCase()===categoryId.toLowerCase())||[]
   }
 
   // Add a new category

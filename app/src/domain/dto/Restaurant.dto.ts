@@ -5,5 +5,6 @@ export type RestaurantDTO= {
     name: string;
     logo: string;
     locals: LocalDTO[];
+    imagePath:string;
   }
   

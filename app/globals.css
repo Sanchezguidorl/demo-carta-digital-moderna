@@ -152,3 +152,9 @@
     opacity: 1;
   }
 }
+
+
+#LocalHeaderImage{
+width: 100% !important;
+height: 100% !important;
+}

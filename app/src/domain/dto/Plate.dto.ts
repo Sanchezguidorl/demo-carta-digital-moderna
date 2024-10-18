@@ -1,11 +1,12 @@
 export type PlateDTO= {
     id: string;
-    title: string;
+    name: string;
     price: number;
     description: string;
     score: number;
     category: string;
-    image: string;
+    imageUrl: string;
     onPromotion: boolean;
+    imagePath:string;
   }
   

@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="bg-red h-full max-h-[100vh] w-full overflow-hidden text-white">
+    <html lang="es" className="bg-red h-full max-h-[100vh] w-full overflow-auto text-white">
 
       <RestaurantContextProvider>
 

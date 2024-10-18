@@ -17,7 +17,7 @@ function CategoriesList() {
           categoryItemProps={{
             id: category.getId(),
             title: category.getName(),
-            image: EnsaladaImage,
+            image: category.getImage(),
           }}
         />
       )):

@@ -6,8 +6,8 @@ import AdminOptionAction from "./AdminOptionAction"
 
 function AdminHeader() {
   return (
-    <header className=" text-orange-900 bg-white">
-      <BackButton/>
+    <header className=" text-orange-900 ">
+       <BackButton/>
       <h1 className=" text-center bg-orange-950 p-3 text-white">Administrar Carta Digital</h1>
       <AdminOptionAction title={"Agregar categoría"}>
       <AddCategoryForm/>

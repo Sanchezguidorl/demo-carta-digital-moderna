@@ -24,11 +24,9 @@ function AdminPage() {
     <>
      <div className="sticky z-30 top-0">
        <AdminHeader />
-      {/* Encabezado con "Carta general" y "Filtrar" */}
+      {/* Encabezado con "Carta general" y "Filtrar" 
       <div className="flex justify-between items-center p-3 bg-neutral-500">
         <h1 className="text-xs font-bold">Carta general</h1>
-
-        {/* Select para filtrar por categoría */}
         <div className="flex items-center gap-2 font-sans">
           <select
             value={selectedCategory}
@@ -46,7 +44,6 @@ function AdminPage() {
       </div>
             </div>
 
-      {/* ScrollContainer con los elementos filtrados */}
       <ScrollContainer>
         <div className="flex flex-col gap-4 mt-1 text-white cursor-pointer w-full items-center justify-center">
           {filteredMenuItems.map((item, index) => (
@@ -58,9 +55,10 @@ function AdminPage() {
               <CardPlate plateItem={item} />
             </div>
           ))}
-        </div>
-      </ScrollContainer>
-    </>
+          </ScrollContainer>
+          */}
+          </div>
+        </>
   );
 }
 
