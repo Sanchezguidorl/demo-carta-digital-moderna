@@ -3,6 +3,7 @@ import BgImgMedium from "/public/images/localselection_medium.avif";
 import BgImgSmall from "/public/images/localselection_small.avif";
 import SelectioLocalsList from "./src/infraestructure/components/layouts/SelectioLocalsList";
 
+
 export default function Home() {
   return (
     <main className="fade-in bg-red-300 h-full text-red-950 flex flex-col justify-center relative text-center max-h-[100vh] overflow-hidden">
