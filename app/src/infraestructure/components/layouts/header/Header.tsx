@@ -1,11 +1,8 @@
-"use client";
 import Image from "next/image";
 import HeaderImage from "/public/images/barPhoto.jpg";
 import OptionsSucursal from "./OptionsSucursal";
-import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
 
 function Header() {
-  const { localService } = useLocalContext();
   return (
     <>
       <OptionsSucursal />
