@@ -17,7 +17,7 @@ function CategoryItem({ categoryItemProps }: { categoryItemProps: CategoryItemTy
         className="overflow-hidden relative flex justify-center items-center h-[110px] sm:h-[200px] md:h-[240px] uppercase brightness-90 hover:brightness-125"
         href={`/pages/category/${categoryItemProps.title.toLowerCase()}/${categoryItemProps.id}`}>
         
-        {isLoading && <SkeletonDiv />} {/* Mostrar SkeletonDiv mientras se carga */}
+        {isLoading && <div className='absolute z-30 w-full h-full'><SkeletonDiv /></div>} {/* Mostrar SkeletonDiv mientras se carga */}
 
         <Image
           src={categoryItemProps.image}
@@ -28,7 +28,7 @@ function CategoryItem({ categoryItemProps }: { categoryItemProps: CategoryItemTy
           onLoad={handleImageLoad} // Manejar la carga de la imagen
         />
 
-        <p className='absolute z-10 text-right bottom-2 right-3 text-xl'>{categoryItemProps.title}</p>
+        <p className={`absolute z-10 text-right bottom-2 right-3 text-xl transition-opacity duration-300 ${isLoading && "opacity-0"}`}>{categoryItemProps.title}</p>
       </Link>
     </li>
   );

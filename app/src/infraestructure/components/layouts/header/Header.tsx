@@ -22,15 +22,16 @@ function Header() {
           </h1>
         </div>
         <div className="m-auto absolute overflow-hidden w-full">
-          {localService && (
+         
             <Image
               src={HeaderImage}
               className=" saturate-[45%] w-full"
               alt=""
+              priority
               loading="eager"
               id="LocalHeaderImage"
             />
-          )}
+          
         </div>
       </header>
     </>
