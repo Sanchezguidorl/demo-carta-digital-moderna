@@ -6,11 +6,12 @@ import Loading from "@/app/loading";
 import { useEffect, useState } from "react";
 
 function CategoriesList() {
-  const { localService, loading } = useLocalContext();
+  const { localService } = useLocalContext();
+
   const [showLoading, setShowLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (loading) {
+    if (localService) {
       const timer =  setTimeout(() => {
         console.log("se cambia a false")
         setShowLoading(false);
@@ -18,7 +19,7 @@ function CategoriesList() {
       return () => clearTimeout(timer); // Limpiar el timeout en caso de desmontaje
       
     };
-  }, [loading]);
+  }, [localService]);
 
   return (
     <>
