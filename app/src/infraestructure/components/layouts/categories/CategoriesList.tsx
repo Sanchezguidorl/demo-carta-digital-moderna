@@ -15,7 +15,7 @@ function CategoriesList() {
       const timer =  setTimeout(() => {
         console.log("se cambia a false")
         setShowLoading(false);
-      }, 900);
+      }, 1500);
       return () => clearTimeout(timer); // Limpiar el timeout en caso de desmontaje
       
     };
