@@ -1,5 +1,5 @@
 import HeaderImage from "/public/images/barPhoto.jpg";
-import HeaderImageSmall from "/public/images/barPhoto_small.jpg";
+import HeaderImageSmall from "/public/images/barPhoto_small.webp";
 import OptionsSucursal from "./OptionsSucursal";
 
 function Header() {
