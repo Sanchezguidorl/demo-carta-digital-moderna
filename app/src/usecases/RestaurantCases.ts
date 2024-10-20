@@ -162,7 +162,7 @@ export async function saveNewCategory(
 
       // Referencia en Firebase Storage
       const imageRef = ref(storage, `images/${imageName}`);
-      const compressedFile = await compressImage(fileImage);
+      const compressedFile = await compressImage(fileImage, 480);
       // Subir la imagen a Firebase Storage
       const snapshot = await uploadBytes(imageRef, compressedFile);
 
