@@ -3,6 +3,7 @@ import { Inknut_Antiqua } from "next/font/google";
 import "./globals.css";
 import LocalContextProvider from "./src/contexts/LocalContextProvider";
 import RestaurantContextProvider from "./src/contexts/RestaurantContextProvider";
+import { getRestaurant } from "./src/usecases/RestaurantCases";
 
 const Antiqua = Inknut_Antiqua({
   subsets: ["latin"],
@@ -19,13 +20,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
     <html
       lang="es"
       className="bg-red h-full w-full relative overflow-hidden text-white"
     >
-      <link rel="icon" href="/favicon.ico" />
-      <RestaurantContextProvider>
+    <head>
+    <link rel="icon" href="/favicon.ico" />
+    </head>
+ <RestaurantContextProvider>
         <LocalContextProvider>
           <body className={`${Antiqua.className} h-full overflow-auto`}>
             {children}

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import HeaderImage from "/public/images/barPhoto.jpg";
+import HeaderImageSmall from "/public/images/barPhoto_small.jpg";
 import OptionsSucursal from "./OptionsSucursal";
 
 function Header() {
@@ -20,12 +20,11 @@ function Header() {
         </div>
         <div className="m-auto absolute overflow-hidden w-full">
          
-            <Image
-              src={HeaderImage}
+            <img
+              src={HeaderImage.src}
+              srcSet={`${HeaderImageSmall.src} 480w, ${HeaderImage.src} 1200w`} 
               className=" saturate-[45%] w-full"
               alt=""
-              priority
-              loading="eager"
               id="LocalHeaderImage"
             />
           

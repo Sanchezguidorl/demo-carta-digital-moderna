@@ -42,7 +42,7 @@ interface RestaurantProviderProps {
 
 function RestaurantContextProvider({ children }: RestaurantProviderProps) {
   const [restaurantService, setRestaurantService] =
-    useState<RestaurantService | null>(null);
+    useState<RestaurantService | null>();
   const [selectedLocal, setSelectedLocal] = useState<LocalEntity | null>(null); // Estado para manejar el local seleccionado
   const [error, setError] = useState<string | null>(null); // Estado para manejar errores
   const [loading, setLoading] = useState<boolean>(true); // Estado para manejar la carga
@@ -63,6 +63,7 @@ function RestaurantContextProvider({ children }: RestaurantProviderProps) {
   };
   useEffect(() => {
      if(!restaurantService){
+      console.log("se acciona fetch")
       fetchData();
      }
 
