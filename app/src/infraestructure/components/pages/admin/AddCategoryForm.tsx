@@ -8,6 +8,7 @@ import { CategoryEntity } from "@/app/src/domain/entity/Category.entity";
 import { saveNewCategory } from "@/app/src/usecases/RestaurantCases";
 import { LocalEntity } from "@/app/src/domain/entity/Local.entity";
 import LoadingSpin from "../../layouts/LoadingSpin";
+import BlockActionDemo from "../../layouts/BlockActionDemo";
 
 function AddCategoryForm() {
   const [categoryName, setCategoryName] = useState("");
@@ -104,9 +105,13 @@ function AddCategoryForm() {
 
   return (
     <div className="py-4 w-full relative">
-      {loading && <div className="w-full h-full flex flex-col border justify-center items-center absolute top-0 left-0 bg-white z-30"><LoadingSpin />
-        <p className="mt-1">Guardando...</p>
-      </div>}{" "}
+      <BlockActionDemo />
+      {loading && (
+        <div className="w-full h-full flex flex-col border justify-center items-center absolute top-0 left-0 bg-white z-30">
+          <LoadingSpin />
+          <p className="mt-1">Guardando...</p>
+        </div>
+      )}{" "}
       {/* Mostrar componente de carga */}
       <div className="w-full relative flex flex-col p-6 justify-center items-start gap-2">
         {error && <p className="text-red-500">{error}</p>}
@@ -188,12 +193,15 @@ function AddCategoryForm() {
           </div>
         </div>
 
-        <div
-          className="flex flex-col items-center cursor-pointer hover:brightness-150 mx-auto"
-          onClick={handleSubmit}
-        >
-          <Image className="w-6" src={SaveIcon} alt="Guardar" />
-          <p className="text-[8px] md:text-sm">Guardar</p>
+        {/* Botón de guardar */}
+        <div className="w-full mt-6">
+          <button
+            onClick={handleSubmit}
+            className="w-full flex justify-center items-center gap-2 bg-green-500 p-3 rounded-lg text-white font-semibold"
+          >
+            <Image src={SaveIcon} className="object-cover w-5 invert" alt="Ícono de Guardar" />
+            Guardar
+          </button>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import {
 import { RestaurantService } from "../services/RestaurantService";
 import { LocalEntity } from "../domain/entity/Local.entity";
 import { getRestaurant } from "../usecases/RestaurantCases";
+import { LocalService } from './../services/LocalService';
 
 // Definir el tipo del contexto
 interface RestaurantContextProps {
@@ -19,6 +20,8 @@ interface RestaurantContextProps {
   error: string | null; // Variable para manejar errores
   loading: boolean; // Variable para manejar el estado de carga
   refetch:()=>void;
+  localService:LocalService| null;
+  setLocalService:(service: LocalService) => void;
 }
 
 // Crear el contexto con un valor por defecto
@@ -29,7 +32,9 @@ const RestaurantContext = createContext<RestaurantContextProps>({
   setSelectedLocal: (local) => {},
   error: null,
   loading: false,
-  refetch:()=>{}
+  refetch:()=>{},
+  setLocalService:(service)=>{},
+  localService:null,
 });
 
 // Hook para acceder al contexto
@@ -46,7 +51,7 @@ function RestaurantContextProvider({ children }: RestaurantProviderProps) {
   const [selectedLocal, setSelectedLocal] = useState<LocalEntity | null>(null); // Estado para manejar el local seleccionado
   const [error, setError] = useState<string | null>(null); // Estado para manejar errores
   const [loading, setLoading] = useState<boolean>(true); // Estado para manejar la carga
-
+  const [localService,setLocalService]=useState<LocalService|null>(null);
   const fetchData = () => {
     setLoading(true); // Iniciar la carga
     getRestaurant()
@@ -58,19 +63,24 @@ function RestaurantContextProvider({ children }: RestaurantProviderProps) {
       })
       .finally(() => {
         setSelectedLocal(null);
+        setLocalService(null);
         setLoading(false); // Finalizar la carga
       });
   };
   useEffect(() => {
      if(!restaurantService){
-      console.log("se acciona fetch")
       fetchData();
      }
 
     if (!selectedLocal && restaurantService) {
       setSelectedLocal(restaurantService.getAllLocales()[0]);
+
     }
-  }, [restaurantService]);
+
+    if(selectedLocal){
+      setLocalService(new LocalService(selectedLocal));
+    }
+  }, [restaurantService,selectedLocal]);
   return (
     <RestaurantContext.Provider
       value={{
@@ -81,6 +91,8 @@ function RestaurantContextProvider({ children }: RestaurantProviderProps) {
         error,
         refetch:fetchData,
         loading,
+        localService,
+        setLocalService
       }}
     >
       {children}

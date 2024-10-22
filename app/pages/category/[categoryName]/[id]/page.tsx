@@ -1,6 +1,7 @@
 "use client";
-import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
+import { useRestaurantContext } from "@/app/src/contexts/RestaurantContextProvider";
 import { PlateEntity } from "@/app/src/domain/entity/Plate.entity";
+import CategoryEmpty from "@/app/src/infraestructure/components/layouts/CategoryEmpty";
 import OptionsSucursal from "@/app/src/infraestructure/components/layouts/header/OptionsSucursal";
 import ScrollContainer from "@/app/src/infraestructure/components/layouts/ScrollContainer";
 import CardPlate from "@/app/src/infraestructure/components/pages/category/plates/CardPlate";
@@ -11,7 +12,7 @@ import React, { useState, useEffect } from "react";
 
 function CategoryRoute() {
   const { id, categoryName } = useParams(); // Obtener los parámetros de la ruta
-  const { localService } = useLocalContext(); // Obtener el servicio local
+  const { localService } = useRestaurantContext(); // Obtener el servicio local
   const [categoryItems, setCategoryItems] = useState<PlateEntity[]>([]); // Estado para almacenar los platos
   const [imageSrc, setImageSrc] = useState<string>(""); // Estado para la URL de la imagen
 
@@ -44,7 +45,7 @@ function CategoryRoute() {
             <CardPlate key={plateItem.getId()} plateItem={plateItem} /> // Asegúrate de usar un identificador único
           ))
         ) : (
-          <p>No hay platos disponibles para esta categoría.</p>
+          <CategoryEmpty/>
         )}
       </ScrollContainer>
     </>

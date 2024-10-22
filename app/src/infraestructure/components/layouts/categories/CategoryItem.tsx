@@ -23,6 +23,7 @@ function CategoryItem({ categoryItemProps }: { categoryItemProps: CategoryItemTy
           src={categoryItemProps.image}
           width={600}
           height={600}
+          loading='eager'
           className={`img-card transition-all duration-700 absolute brightness-50 hover:saturate-100 contrast-125 hover:contrast-125 -top-16  md:-mt-20 w-full`}
           alt={categoryItemProps.title} // Es recomendable usar un alt descriptivo
           onLoad={handleImageLoad} // Manejar la carga de la imagen

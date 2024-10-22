@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inknut_Antiqua } from "next/font/google";
 import "./globals.css";
-import LocalContextProvider from "./src/contexts/LocalContextProvider";
 import RestaurantContextProvider from "./src/contexts/RestaurantContextProvider";
-import { getRestaurant } from "./src/usecases/RestaurantCases";
+import ShowOtherMenu from "./src/infraestructure/components/layouts/ShowOtherMenu";
+
 
 const Antiqua = Inknut_Antiqua({
   subsets: ["latin"],
@@ -28,16 +28,15 @@ export default function RootLayout({
       lang="es"
       className="bg-red h-full w-full relative overflow-hidden text-white"
     >
-    <head>
-    <link rel="icon" href="/favicon.ico" />
-    </head>
- <RestaurantContextProvider>
-        <LocalContextProvider>
-          <body className={`${Antiqua.className} h-full overflow-auto`}>
-            {children}
-          </body>
-        </LocalContextProvider>
-      </RestaurantContextProvider>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+        <body className={`${Antiqua.className} h-full overflow-auto`}>
+        <RestaurantContextProvider>
+      {children}
+    </RestaurantContextProvider>
+    <ShowOtherMenu/>
+        </body>
     </html>
   );
 }

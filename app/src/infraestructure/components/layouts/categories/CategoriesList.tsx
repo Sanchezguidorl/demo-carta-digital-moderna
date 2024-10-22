@@ -1,12 +1,12 @@
 "use client";
 import CategoryItem from "./CategoryItem";
-import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
 import { CategoryEntity } from "@/app/src/domain/entity/Category.entity";
 import Loading from "@/app/loading";
 import { useEffect, useState } from "react";
+import { useRestaurantContext } from "@/app/src/contexts/RestaurantContextProvider";
 
 function CategoriesList() {
-  const { localService } = useLocalContext();
+  const { localService } = useRestaurantContext();
 
   const [showLoading, setShowLoading] = useState<boolean>(true);
 

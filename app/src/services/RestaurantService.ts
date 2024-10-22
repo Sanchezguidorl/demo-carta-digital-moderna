@@ -4,10 +4,10 @@ import { LocalEntity } from "../domain/entity/Local.entity";
 import { PlateEntity } from "../domain/entity/Plate.entity";
 import { RestaurantEntity } from "../domain/entity/Restaurant.entity";
 import { RestaurantMapper } from "../domain/mappers/RestaurantMapper";
+import { LocalService } from './LocalService';
 
 export class RestaurantService {
   private restaurantData: RestaurantEntity;
-
   constructor(data: RestaurantEntity) {
     this.restaurantData = data;
   }

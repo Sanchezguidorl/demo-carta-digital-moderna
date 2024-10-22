@@ -5,11 +5,11 @@ import AdminHeader from "@/app/src/infraestructure/components/pages/admin/AdminH
 import CardPlate from "@/app/src/infraestructure/components/pages/category/plates/CardPlate";
 import Image from 'next/image';
 import EditIcon from '/public/images/editIcon.png';
-import { useLocalContext } from "@/app/src/contexts/LocalContextProvider";
+import { useRestaurantContext } from "@/app/src/contexts/RestaurantContextProvider";
 
 function AdminPage() {
   const [selectedCategory, setSelectedCategory] = useState("");
-  const {localService}=useLocalContext();
+  const {localService}=useRestaurantContext();
   // Filtrar los items según la categoría seleccionada
   const filteredMenuItems = selectedCategory
     ? localService?.getAllplatesByCategory(selectedCategory) || []: localService?.getAllPlates() || [];

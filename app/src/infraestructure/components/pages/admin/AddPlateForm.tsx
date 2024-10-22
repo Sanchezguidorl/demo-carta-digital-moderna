@@ -10,6 +10,7 @@ import { LocalEntity } from "@/app/src/domain/entity/Local.entity";
 import { PlateEntity } from "@/app/src/domain/entity/Plate.entity";
 import LoadingSpin from './../../layouts/LoadingSpin';
 import { CategoryEntity } from "@/app/src/domain/entity/Category.entity";
+import BlockActionDemo from "../../layouts/BlockActionDemo";
 
 function AddPlateForm() {
   const [plateName, setPlateName] = useState("");
@@ -118,6 +119,7 @@ function AddPlateForm() {
 
   return (
     <div className="py-4 w-full relative">
+          <BlockActionDemo/>
       {isLoading && (
         <div className="w-full h-full flex flex-col border justify-center items-center absolute top-0 left-0 bg-white z-30">
           <LoadingSpin />
